@@ -23,7 +23,7 @@ const config: Config = {
     },
   },
   plugins: [
-    require("@preline/plugin"),
+    require('preline/plugin'),
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
