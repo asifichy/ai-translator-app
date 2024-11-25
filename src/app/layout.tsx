@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "InterpretAI",
-  description: "Makes Language Easy",
+  description: "Makes Language Easy For Everyone",
 };
 
 export default function RootLayout({
