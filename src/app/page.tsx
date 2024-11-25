@@ -1,10 +1,18 @@
 "use client";
+import "regenerator-runtime/runtime"; //error fix for getting run time error
 import React, { useState, ChangeEvent } from "react";
 import TextArea from "../components/Inputs/TextArea";
+import SpeechRecognition from "../components/SpeechRecognition/SpeechRecognition";
+import { IconFileUpload, IconVolume } from "@tabler/icons-react";
 
 export default function Home() {
 
   const [sourceText, setSourceText] = useState<string>("");
+
+  const handleAudioPlayback = (text: string) => {
+    const utterence = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterence);
+  };
 
   return (
     <div className="h-[50rem] w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">
@@ -21,6 +29,7 @@ export default function Home() {
               <div className="mt-7 sm:mt-12 mx-auto max-w-3xl relative">
                 <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
                   <div className="relative z-10 flex flex-col space-x-3 border rounded-lg shawdow-lg bg-neutral-900 border-neutral-700 shadow-gray-900/20">
+                    {/* Input Field Component */}
                     <TextArea
                       id="source language"
                       value={sourceText}
@@ -31,7 +40,22 @@ export default function Home() {
                       />
                       <div className="flex flex-row justify-between w-full">
                         <span className="cursor-pointer flex space-x-2 flex-row">
+                          {/* Speech Recognition Component */}
+                          <SpeechRecognition                           
+                            setSourceText={setSourceText }
                           
+                            />
+                          {/* Icon Component */}
+                          <IconVolume 
+                            size={22}
+                            onClick={() => {
+                              handleAudioPlayback(sourceText);
+                            }}
+                          />  
+                          {/* File Upload Component */}
+                          <IconFileUpload 
+                            size={22}
+                          />                       
                         </span>
                       </div>
                   </div>
