@@ -9,8 +9,17 @@ export default function Home() {
           <div className="max-w-[85rem] mx-auto px-4 sm:px-6 py-16 sm:py-24">
             <div className="text-center">
               <h1 className="text-4xl sm:text-6xl font-bold  text-neutral-200">
-                Interpret<span className="text-[$f87315]">AI</span>
+                Interpret<span className="text-[#f87315]">AI</span>
               </h1>
+              <p>Language Freedom for Everyone</p>
+
+              <div className="mt-7 sm:mt-12 mx-auto max-w-3xl relative">
+                <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
+                  <div className="relative z-10 flex flex-col space-x-3 border rounded-lg shawdow-lg bg-neutral-900 border-neutral-700 shadow-gray-900/20">
+                    
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
