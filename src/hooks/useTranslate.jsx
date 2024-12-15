@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { OpenAI } from "openai";
-import { tr } from "framer-motion/client";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
