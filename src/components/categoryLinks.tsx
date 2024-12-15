@@ -33,6 +33,7 @@ const CategoryLinks: React.FC = () => {
           href="#"
         >
           <Icon size={18} />
+          <p className="text-2xl">{label}</p>
           {label}
         </a>
       ))}
