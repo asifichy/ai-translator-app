@@ -7,10 +7,11 @@ const LanguageSelector = ({ selectedLanguage, setSelectedLanguage, languages }) 
         <IconLanguage size={22} />
         <select
             value={selectedLanguage}
-            onChange={(e) => setSelectedLanguage(e.target.value)}>
+            onChange={(e) => setSelectedLanguage(e.target.value)}
+            className='bg-black flex flex-row rounded-full py-1 text-white'>
                 {languages.map((language) => (
-                <option key={language.code} value={language.code}>
-                    {language.name}
+                <option key={language} value={language}>
+                    {language}
                 </option>
             ))}
         </select>
