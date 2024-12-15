@@ -1,1 +1,3 @@
-This is a a AI powered translating app built with NextJS, Tailwind CSS & TypeScript.
+# ai-translator-app
+Its' an ai powered translation app built with NextJS, Tailwind CSS &amp; TypeScript
+
