@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { OpenAI } from "openai";
+import debounce from 'lodash.debounce';
 
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -10,15 +11,10 @@ const useTranslate = (sourceText, selectedLanguage) => {
   const [targetText, setTargetText] = useState("");
 
   useEffect(() => {
-    const handleTranslate = async (sourceText) => {
+    const handleTranslate = debounce(async (sourceText) => {
       try {
         const response = await openai.chat.completions.create({
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are a helpful assistant that translates text from one language to another."
-            },
+          messages: [            
             {
               role: "user",
               content: `You will be provided with a sentence. This sentence: 
@@ -28,14 +24,15 @@ const useTranslate = (sourceText, selectedLanguage) => {
                             Do not return anything other than the translated sentence.`
             }
           ],
-          model: "gpt-4o"
+          model: "gpt-3.5-turbo",
         });
         const data = response.choices[0].message.content;
         setTargetText(data);
       } catch (error) {
         console.error("Error translating text:", error);
       }
-    };
+    }, 1000);
+
     if (sourceText.trim() !== "") {
       const timeoutID = setTimeout(() => {
         handleTranslate(sourceText);
